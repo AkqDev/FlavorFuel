@@ -24,7 +24,7 @@ closeBtn?.addEventListener("click", () => {
 /* ======================================================
    SMOOTH SCROLL ON NAVBAR CLICK
 ====================================================== */
-$$("nav a, #mobile-menu a").forEach(link => {
+$$("nav a, #mobile-menu a").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const href = link.getAttribute("href");
@@ -35,7 +35,7 @@ $$("nav a, #mobile-menu a").forEach(link => {
       if (target) {
         window.scrollTo({
           top: target.offsetTop - 70, // Adjust offset for sticky navbar
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     }
@@ -71,27 +71,27 @@ window.addEventListener("load", () => {
 /* ======================================================
    SCROLL REVEAL FOR COMPONENTS
 ====================================================== */
-// Select all sections, menu cards, titles, and footer, excluding navbar
 const revealItems = $$(
   "section, .menu-card, .text-center, footer, .max-w-6xl, .max-w-2xl"
 );
 
-// Intersection Observer for reveal
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("opacity-100", "translate-y-0", "scale-100");
       } else {
-        // Remove opacity if you scroll out of component
-        entry.target.classList.remove("opacity-100", "translate-y-0", "scale-100");
+        entry.target.classList.remove(
+          "opacity-100",
+          "translate-y-0",
+          "scale-100"
+        );
       }
     });
   },
   { threshold: 0.15 }
 );
 
-// Initialize hidden state and observe
 revealItems.forEach((el) => {
   el.classList.add(
     "opacity-0",
@@ -148,7 +148,10 @@ $$("button").forEach((btn) => {
     setTimeout(() => ripple.remove(), 600);
   });
 
-  btn.addEventListener("mousedown", () => (btn.style.transform = "scale(0.95)"));
+  btn.addEventListener(
+    "mousedown",
+    () => (btn.style.transform = "scale(0.95)")
+  );
   btn.addEventListener("mouseup", () => (btn.style.transform = "scale(1)"));
 });
 
@@ -163,49 +166,63 @@ $$("img").forEach((img, i) => {
    PAGE LOADER
 ====================================================== */
 const loader = document.createElement("div");
+loader.className = "loader-container";
 loader.innerHTML = `
-  <h1 class="text-3xl md:text-4xl font-[montserrat] font-extrabold">
-    <span class="text-white">Flavor</span><span>Fuel</span>
-  </h1>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
 `;
 document.body.appendChild(loader);
 
-Object.assign(loader.style, {
-  position: "fixed",
-  inset: 0,
-  background: "#090909",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  zIndex: 10000,
-  transition: "opacity 1s ease",
-});
+// Loader styles
+const loaderStyle = document.createElement("style");
+loaderStyle.innerHTML = `
+  .loader-container {
+    position: fixed;
+    inset: 0;
+    background-color: #090909;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    z-index: 10000;
+  }
 
-loader.querySelector("h1").style.cssText = `
-  color:#C28B00;
-  animation:pulse 1.2s infinite;
+  .dot {
+    width: 20px;
+    height: 20px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    animation: bounce 0.6s infinite alternate;
+  }
+
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse {
+    0% {transform:scale(1);opacity:1}
+    50% {transform:scale(1.15);opacity:.6}
+    100% {transform:scale(1);opacity:1}
+  }
+
+  @keyframes float {
+    0% {transform:translateY(0)}
+    50% {transform:translateY(-14px)}
+    100% {transform:translateY(0)}
+  }
 `;
+document.head.appendChild(loaderStyle);
 
+// Remove loader after page load
 window.addEventListener("load", () => {
   setTimeout(() => {
+    loader.style.transition = "opacity 0.5s ease";
     loader.style.opacity = "0";
-    setTimeout(() => loader.remove(), 1000);
+    setTimeout(() => loader.remove(), 500);
   }, 1200);
 });
-
-/* ======================================================
-   KEYFRAMES
-====================================================== */
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes pulse {
-  0% {transform:scale(1);opacity:1}
-  50% {transform:scale(1.15);opacity:.6}
-  100% {transform:scale(1);opacity:1}
-}
-@keyframes float {
-  0% {transform:translateY(0)}
-  50% {transform:translateY(-14px)}
-  100% {transform:translateY(0)}
-}`;
-document.head.appendChild(style);
