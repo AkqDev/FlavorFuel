@@ -1,203 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="styles.css">
-    <title>Food Website</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlavorFuel | Premium Burgers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-    <nav>
-        <div class="navbar">
-            <ul>
-                <a href="#"><li>Home</li></a>
-                <a href="#"><li>About</li></a>
-                <a href="#"><li>Menu</li></a>
-                <a href="#"><li>Contact</li></a>
-            </ul>
+
+<body class="bg-[#090909] text-white">
+
+  <!-- NAVBAR -->
+  <nav class="w-full bg-[#090909] border-b border-zinc-800 sticky top-0 z-50 ">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-white">
+
+      <!-- LOGO -->
+      <h1 class="text-lg font-extrabold tracking-tight font-logo">
+        FLAVOR<span class="text-[#B8860B]">FUEL</span>
+      </h1>
+
+
+      <!-- DESKTOP MENU -->
+      <ul class="hidden md:flex gap-6 text-sm">
+        <a href="#home" class="hover:text-[#B8860B]">Home</a>
+        <a href="#menu" class="hover:text-[#B8860B]">Menu</a>
+        <a href="#about" class="hover:text-[#B8860B]">About</a>
+        <a href="#testimonials" class="hover:text-[#B8860B]">Testimonials</a>
+        <a href="#contact" class="hover:text-[#B8860B]">Contact</a>
+      </ul>
+
+      <!-- RIGHT SIDE -->
+      <div class="flex items-center gap-4">
+
+        <!-- SOCIAL -->
+        <div class="hidden sm:flex gap-3 text-sm">
+          <a href="#" class="hover:text-[#B8860B]"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-[#B8860B]"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="hover:text-[#B8860B]"><i class="fab fa-facebook-f"></i></a>
         </div>
-        
-        <div class="social-icons">
-            <a href="#"><img src="instagram.png"></a>
-            <a href="#"><img src="twitter.png"></a>
-            <a href="#"><img src="facebook.png"></a>
-            <button>+12-000111222</button>
-        </div>
+
+        <!-- PHONE -->
+        <button id="whatsapp-btn" class="hidden lg:flex items-center border border-[#B8860B] text-[#B8860B]
+  px-5 py-2 rounded-full text-xs hover:bg-[#B8860B] hover:text-white transition">
+          <i class="fa-solid fa-phone-flip mr-1"></i>+92 3068868886
+        </button>
+
+
+        <!-- MOBILE MENU ICON -->
+        <i id="menu-btn" class="md:hidden fa-solid fa-bars text-lg cursor-pointer text-[#B8860B]"></i>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-black/85 z-[60] flex flex-col items-center justify-center gap-8 text-xl font-bold transition-transform duration-500 transform -translate-y-full font-[montserrat]">
+
+    <!-- Close Button -->
+    <button id="close-menu"
+      class="absolute top-6 right-8 text-4xl text-[#B8860B] hover:scale-125 transition-transform duration-300">&times;</button>
+
+    <!-- Heading -->
+    <h1 class="text-4xl md:text-5xl font-extrabold">
+      <span class="text-white">Flavor</span>
+      <span class="text-[#B8860B] hover:text-white transition-colors duration-300">Fuel</span>
+    </h1>
+
+    <!-- Menu Links -->
+    <nav class="flex flex-col gap-6 text-center">
+      <a href="#home" class="hover:text-[#B8860B] hover:scale-110 transition duration-300">Home</a>
+      <a href="#menu" class="hover:text-[#B8860B] hover:scale-110 transition duration-300">Menu</a>
+      <a href="#about" class="hover:text-[#B8860B] hover:scale-110 transition duration-300">About</a>
+      <a href="#testimonials" class="hover:text-[#B8860B] hover:scale-110 transition duration-300">Testimonials</a>
+      <a href="#contact" class="hover:text-[#B8860B] hover:scale-110 transition duration-300">Contact</a>
     </nav>
 
-    <div class="header">
-        <div class="background-text">
-            <h3>Big Deal</h3>
-            <h2>BURGER</h2>
-            <h2>BACHELOR</h2>
-            <h1>Mexican</h1>
-        </div>
+    <!-- SOCIAL LINKS -->
+    <div class="flex gap-4 text-sm mt-4">
+      <a href="#" class="hover:text-[#B8860B] hover:scale-125 transition transform duration-300"><i
+          class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-[#B8860B] hover:scale-125 transition transform duration-300"><i
+          class="fab fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-[#B8860B] hover:scale-125 transition transform duration-300"><i
+          class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
+
+
+  <!-- HERO SECTION -->
+  <section id="home" class="relative w-full flex items-center justify-center text-center overflow-hidden
+         h-[45vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh]">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-[url('banner2.png')] bg-cover bg-center bg-no-repeat">
     </div>
 
-    <div class="text-align">
-    <h1>Burger Menu</h1>
-    <h2>BEST EVER BURGERS</h2>
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <!-- Content -->
+    <div id="heroText" class="relative z-10 text-white font-poppins opacity-0 translate-y-10
+           transition-all duration-1000 px-4">
+
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-montserrat font-extrabold leading-tight">
+        BURGER <span class="text-[#B8860B]">BACHELOR</span>
+      </h2>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-montserrat font-black
+             text-[#FAB404] my-2 drop-shadow-lg">
+        Mexican
+      </h1>
+
+      <h3 class="inline-block bg-[#B8860B] px-5 py-2 text-xs sm:text-sm md:text-base
+             uppercase tracking-widest rounded-full mt-3 animate-pulse">
+        Big Deal
+      </h3>
+
+    </div>
+  </section>
+
+
+  <!-- TITLE -->
+  <div class="text-center my-12">
+    <h1 class="text-4xl md:text-5xl font-montserrat py-4 font-extrabold text-[#C28B00]">
+      Burger Menu
+    </h1>
+    <h2 class="text-3xl md:text-4xl font-montserrat font-bold tracking-wide">
+      BEST EVER BURGERS
+    </h2>
+  </div>
+
+  <section id="menu" class="max-w-6xl mx-auto px-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-10">
+
+    <!-- CARD 1 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="1 (1).png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Beefy Burgers</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
     </div>
 
-    <header>
-        <div class="main-div">
-          <div class="image">
-            <img src="1 (1).png">
-          </div>
-
-          <div class="text-flex">
-             <h1>Beefy Burgers</h1>
-             <p>Great way to make your business appear trust and relevant.</p>
-             <h3>$5</h3>
-          </div>
-        </div>
-
-        <div class="main-div">
-            <div class="image">
-              <img src="2 (1).png">
-            </div>
-  
-            <div class="text-flex">
-               <h1>Burger Boys</h1>
-               <p> Great way to make your business appear trust and relevant.</p>
-               <h3>$5</h3>
-            </div>
-          </div>
-
-        
-        <div class="main-div">
-            <div class="image">
-              <img src="3.png">
-            </div>
-  
-            <div class="text-flex">
-               <h1>Burger Bizz</h1>
-               <p>Great way to make your business appear trust and relevant.</p>
-               <h3>$5</h3>
-            </div>
-        </div>
-
-        <div class="main-div">
-            <div class="image">
-              <img src="4.png">
-            </div>
-  
-            <div class="text-flex">
-               <h1>Crackles Burger</h1>
-               <p> Great way to make your business appear trust and relevant.</p>
-               <h3>$5</h3>
-            </div>
-        </div>
-
-        <div class="main-div">
-            <div class="image">
-              <img src="5.png">
-            </div>
-  
-            <div class="text-flex">
-               <h1>Bull Burgers</h1>
-               <p> Great way to make your business appear trust and relevant.</p>
-               <h3>$5</h3>
-            </div>
-        </div>
-
-        <div class="main-div">
-            <div class="image">
-              <img src="6.png">
-            </div>
-  
-            <div class="text-flex">
-               <h1>Rocket Burgers</h1>
-               <p> Great way to make your business appear trust and relevant.</p>
-               <h3>$5</h3>
-            </div>
-        </div>
-
-        <div class="main-div">
-            <div class="image">
-              <img src="7.png">
-            </div>
-  
-            <div class="text-flex">
-               <h1>Smokin Burger</h1>
-               <p> Great way to make your business appear trust and relevant.</p>
-               <h3>$5</h3>
-            </div>
-        </div>
-
-        <div class="main-div">
-            <div class="image">
-              <img src="8.png">
-            </div>
-  
-            <div class="text-flex">
-               <h1>Delish Burger</h1>
-               <p> Great way to make your business appear trust and relevant.</p>
-               <h3>$5</h3>
-            </div>
-        </div>
-    </header>
-
-    <div class="btn">
-       <button>More Items</button>
+    <!-- CARD 2 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="2 (1).png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Burger Boys</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
     </div>
 
-<section>
-    <div class="display-images">
-      <div class="center">
-       <h2>$20</h2>
-       <h1>The Burger</h1>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-       <button>Order Now</button>
+    <!-- CARD 3 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="3.png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Burger Bizz</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="4.png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Crackles Burger</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
+    </div>
+
+    <!-- CARD 5 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="5.png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Bull Burgers</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
+    </div>
+
+    <!-- CARD 6 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="6.png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Rocket Burgers</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
+    </div>
+
+    <!-- CARD 7 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="7.png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Smokin Burger</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
+    </div>
+
+    <!-- CARD 8 -->
+    <div
+      class="menu-card bg-transparent rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105 p-4 text-center">
+      <div class="relative mb-4">
+        <img src="8.png" class="w-[180px] h-[180px] mx-auto object-cover rounded-full border-4 border-white">
+        <span class="absolute top-2 right-6 bg-red-700 text-white px-3 py-1 rounded-full text-sm font-bold">$5</span>
+      </div>
+      <h2 class="text-lg font-montserrat font-bold mb-1 text-white">Delish Burger</h2>
+      <p class="text-gray-300 text-sm leading-relaxed">Great way to make your business appear trust and relevant.</p>
+    </div>
+
+  </section>
+
+  <!-- MORE ITEMS BUTTON -->
+  <div class="flex justify-center my-14">
+    <button
+      class="w-[300px] md:w-[500px] py-4 border-2 border-[#C28B00] rounded-full text-[#C28B00] font-[montserrat] text-lg hover:bg-[#C28B00] hover:text-white transition hover:scale-105">
+      More Items
+    </button>
+  </div>
+
+  <section id="about" class="flex flex-wrap mb-8 font-[Poppins] overflow-hidden">
+
+    <!-- Card 1 -->
+    <div class="w-full md:w-1/2 p-2 overflow-hidden">
+      <div
+        class="relative flex items-center justify-center h-[450px] bg-cover bg-center rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+        style="background-image:url('1 (2).png')">
+        <!-- Black Overlay -->
+        <div class="absolute inset-0 bg-black/60 rounded-xl"></div>
+
+        <!-- Content -->
+        <div class="relative text-center px-6">
+          <h2 class="text-[#C28B00] text-4xl font-bold mb-2">$20</h2>
+
+          <h1 class="text-white text-3xl font-extrabold mb-3 font-[Montserrat]">
+            Smoky Beast Burger
+          </h1>
+
+          <p class="text-white text-sm max-w-md mx-auto leading-relaxed">
+            Juicy grilled beef patty loaded with melted cheese, smoky sauce,
+            crispy lettuce, and a toasted sesame bun.
+          </p>
+
+          <button
+            class="mt-6 bg-[#C28B00] hover:bg-[#a87600] transition-all duration-300 text-white px-10 py-2 rounded-full hover:scale-110">
+            Order Now
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="display-images">
-      <div class="center">
-       <h2>$20</h2>
-       <h1>The Burger </h1>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-       <button>Order Now</button>
+    <!-- Card 2 -->
+    <div class="w-full md:w-1/2 p-2 overflow-visible">
+      <div
+        class="relative flex items-center justify-center h-[450px] bg-cover bg-center rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+        style="background-image:url('2 (2).png')">
+        <!-- Black Overlay -->
+        <div class="absolute inset-0 bg-black/60 rounded-xl"></div>
+
+        <!-- Content -->
+        <div class="relative text-center px-6">
+          <h2 class="text-[#C28B00] text-4xl font-bold mb-2">$18</h2>
+
+          <h1 class="text-white text-3xl font-extrabold mb-3 font-[Montserrat]">
+            Crunchy Fire Burger
+          </h1>
+
+          <p class="text-white text-sm  max-w-md mx-auto leading-relaxed">
+            Crispy fried chicken, spicy mayo, fresh tomatoes, and crunchy onions
+            packed into a soft brioche bun.
+          </p>
+
+          <button
+            class="mt-6 bg-[#C28B00] hover:bg-[#a87600] transition-all duration-300 text-white px-10 py-2 rounded-full hover:scale-110">
+            Order Now
+          </button>
+        </div>
       </div>
     </div>
-</section>
+  </section>
 
-<div class="heading">
-      <h1>HAPPY CUSTOMERS</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum vel expedita fuga voluptates Harum modi perspiciatis labore Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro,</p>  
-</div>
 
-<div class="flex">
-    <img src="1 (3).png">
-    <img src="2 (3).png">
-    <img src="3 (1).png">
-    <img src="4 (1).png">
-</div>
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="py-16 px-4">
+    <!-- Heading and Description -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-montserrat py-4 font-extrabold text-[#C28B00]">
+        Loved by Our Customers
+      </h2>
+      <p class="text-gray-300 text-sm sm:text-xs">
+        We don’t just build products — we build trust. Here’s what real people say about their experience working with
+        Flavor Fuel.
+      </p>
+    </div>
 
-<footer>
-  <div class="footer-flex">
-    <h1>Address:</h1>
-    <p>123 Street, City, State, 12345</p>
-  </div>
+    <!-- Testimonials Grid -->
+    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <!-- Testimonial 1 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <p class="text-gray-200 text-sm mb-4">
+          "Flavor Fuel’s burgers are simply amazing! The beef was juicy, and the buns were perfectly toasted. I’ll
+          definitely be coming back for more!"
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://i.pravatar.cc/50?img=1" alt="Customer 1" class="w-10 h-10 rounded-full">
+          <div>
+            <h3 class="text-gray-100 text-sm font-semibold">John D.</h3>
+            <p class="text-gray-400 text-xs">Burger Enthusiast</p>
+          </div>
+        </div>
+      </div>
 
-  <div class="footer-flex">
-    <h1>Contact Us:</h1>
-    <p>Phone: 123-456-7890</p>
-    <input type="email" placeholder="Email:contact@example.com" required><br>
-  </div>
+      <!-- Testimonial 2 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <p class="text-gray-200 text-sm mb-4">
+          "The flavors are out of this world! Tried the spicy chicken burger and it was packed with flavor. Highly
+          recommend Flavor Fuel to all burger lovers."
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://i.pravatar.cc/50?img=2" alt="Customer 2" class="w-10 h-10 rounded-full">
+          <div>
+            <h3 class="text-gray-100 text-sm font-semibold">Sarah K.</h3>
+            <p class="text-gray-400 text-xs">Food Blogger</p>
+          </div>
+        </div>
+      </div>
 
-  <div class="footer-icons">
-    <h1>Follow Us:</h1>
-    <a href="#"><img src="instagram.png"></a>
-    <a href="#"><img src="twitter.png"></a>
-    <a href="#"><img src="facebook.png"></a>
-  </div>
-</footer>
+      <!-- Testimonial 3 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <p class="text-gray-200 text-sm mb-4">
+          "I love how fresh everything tastes. The Flavor Fuel team knows how to make a burger that keeps you coming
+          back. My new favorite spot!"
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://i.pravatar.cc/50?img=3" alt="Customer 3" class="w-10 h-10 rounded-full">
+          <div>
+            <h3 class="text-gray-100 text-sm font-semibold">Mike L.</h3>
+            <p class="text-gray-400 text-xs">Local Foodie</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="end">
-  <p>�� 2024 Food Website. All rights reserved.</p>
-</div>
+  <footer id="contact" class="bg-gray-900 text-gray-300">
+    <div class="max-w-8xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-4 gap-12">
+
+      <!-- Brand Section (wider) -->
+      <div>
+        <h1 class="text-3xl font-montserrat font-bold text-yellow-600 mb-4">
+          FlavorFuel
+        </h1>
+        <p class="font-poppins leading-relaxed text-gray-400 mb-3">
+          Serving sizzling, juicy burgers made with love! From classic cheeseburgers to signature gourmet creations,
+          FlavorFuel ignites your taste buds with every bite.
+        </p>
+        <p class="font-poppins text-gray-400">
+          Fresh ingredients, bold flavors, and a side of fun – that’s our promise in every meal.
+        </p>
+      </div>
+
+      <!-- Address -->
+      <div>
+        <h2 class="text-xl font-montserrat font-semibold mb-4 text-white">
+          Address
+        </h2>
+        <p class="font-serif text-gray-400 leading-relaxed">
+          123 Creative Street<br>
+          Downtown City, PK<br>
+          ZIP 12345
+        </p>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-xl font-montserrat font-semibold mb-4 text-white">
+          Contact Us
+        </h2>
+        <p class="flex items-center text-gray-400 mb-3">
+          <i class="fas fa-phone-alt mr-2"></i>
+          +92 300 1234567
+        </p>
+        <p class="flex items-center text-gray-400 mb-6">
+          <i class="fas fa-envelope mr-2"></i>
+          hello@yourbrand.com
+        </p>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h2 class="text-xl font-montserrat font-semibold mb-4 text-white">
+          Follow Us
+        </h2>
+        <p class="font-poppins text-gray-400 mb-6">
+          Stay connected for updates, insights, and inspiration.
+        </p>
+        <div class="flex gap-4 text-2xl">
+          <a href="#" class="hover:text-yellow-600 transition transform hover:scale-110">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="hover:text-yellow-600 transition transform hover:scale-110">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="hover:text-yellow-600 transition transform hover:scale-110">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="hover:text-yellow-600 transition transform hover:scale-110">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm font-poppins text-gray-500">
+          © 2025 FlavorFuel. All rights reserved.
+        </p>
+        <div class="flex gap-6 text-sm font-poppins">
+          <a href="#" class="hover:text-yellow-600 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-yellow-600 transition">Terms of Service</a>
+          <a href="#" class="hover:text-yellow-600 transition">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
+<script src="script.js"></script>
+
 </html>
