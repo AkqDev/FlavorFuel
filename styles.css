@@ -7,8 +7,10 @@
     scrollbar-color: #C28B00 #111;
 }
 
+
 body {
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 /* Logo font */
